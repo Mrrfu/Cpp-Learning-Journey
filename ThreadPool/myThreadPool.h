@@ -53,8 +53,8 @@ void ThreadPool::worker()
         {
             std::unique_lock<std::mutex> lock(mtx);
             cv.wait(lock, [this]
-                    { return this->isStop || !this->tasks.empty(); });
-            if (this->isStop && this->tasks.empty())
+                    { return this->isStop || !this->tasks.empty(); });  //||，当线程池停止标志为true或任务队列有任务时唤醒线程进行工作
+            if (this->isStop && this->tasks.empty()) //线程池标记为停止以及没有任务时，线程停止；如果被标记为停止，但是有任务未完成，那么所有任务被完成后再退出线程（优雅关闭）
                 return;
             task = std::move(tasks.front());
             tasks.pop();

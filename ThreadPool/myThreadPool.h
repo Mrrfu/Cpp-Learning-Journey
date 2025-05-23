@@ -8,6 +8,40 @@
 #include <mutex>
 #include <functional>
 #include <typeinfo>
+
+template <typename T>
+class Queue
+{
+public:
+    bool push(const T &value)
+    {
+        std::unique_lock<std::mutex> lock(this->mtx);
+        this->q.push(value);
+        return true;
+    }
+    bool pop(T &value)
+    {
+        std::unique_lock<std::mutex> lock(this->mtx);
+        if (this->q.empty())
+            return false;
+        value = this->q.front();
+        this->q.pop();
+        return true;
+    }
+    bool isempty()
+    {
+        std::unique_lock<std::mutex> lock(this->mtx);
+        if (q.empty())
+            return true;
+        else
+            return false;
+    }
+
+private:
+    std::queue<T> q;
+    std::mutex mtx;
+};
+
 class ThreadPool
 {
 public:
@@ -21,10 +55,11 @@ public:
     }
     ~ThreadPool()
     {
-        {
-            std::lock_guard<std::mutex> lock(mtx);
-            isStop = true;
-        }
+        // {
+        //     std::lock_guard<std::mutex> lock(mtx);
+        //     isStop = true;
+        // }
+        isStop = true;
         cv.notify_all(); // 通知所线程池中的线程停止工作
         for (std::thread &th : workers)
         {
@@ -35,31 +70,53 @@ public:
     auto enqueue(F &&f, Args &&...args) -> std::future<decltype(f(args...))>; // 向任务队列提交任务，返回一个结果future
 
 private:
-    bool isStop; // 线程池停止工作标志
+    std::atomic<bool> isStop;
     std::mutex mtx;
-    std::condition_variable cv;              // 条件变量，用于等待任务或提交任务
-    std::vector<std::thread> workers;        // 存放线程
-    std::queue<std::function<void()>> tasks; // 任务队列，存放任务
-    void worker();                           // 工作函数
+    std::condition_variable cv;       // 条件变量，用于等待任务或提交任务
+    std::vector<std::thread> workers; // 存放线程
+    // std::queue<std::function<void()>> tasks; // 任务队列，存放任务
+    Queue<std::function<void()>> tasks;
+    void worker(); // 工作函数
 };
 
 void ThreadPool::worker()
 {
     // 执行函数
+    // while (true)
+    // {
+    //     // 这里函数为什么是void，因为在提交任务至队列时，使用lambda[task]{(*task)();},这个lambda是一个void函数
+    //     std::function<void()> task;
+    //     {
+    //         std::unique_lock<std::mutex> lock(mtx);
+    //         cv.wait(lock, [this]
+    //                 { return this->isStop || !this->tasks.isempty(); });
+    //         if (this->isStop && this->tasks.isempty())
+    //             return;
+
+    //         // task = std::move(tasks.front());
+    //         tasks.pop(task);
+    //         // tasks.pop();
+    //     }
+    //     task();
+    //     bool isPop = tasks.pop(task);
+    // }
+    std::function<void()> task;
+    bool isPop = tasks.pop(task);
     while (true)
     {
-        // 这里函数为什么是void，因为在提交任务至队列时，使用lambda[task]{(*task)();},这个lambda是一个void函数
-        std::function<void()> task;
+        while (isPop)
         {
-            std::unique_lock<std::mutex> lock(mtx);
-            cv.wait(lock, [this]
-                    { return this->isStop || !this->tasks.empty(); });  //||，当线程池停止标志为true或任务队列有任务时唤醒线程进行工作
-            if (this->isStop && this->tasks.empty()) //线程池标记为停止以及没有任务时，线程停止；如果被标记为停止，但是有任务未完成，那么所有任务被完成后再退出线程（优雅关闭）
-                return;
-            task = std::move(tasks.front());
-            tasks.pop();
+            task();
+            isPop = tasks.pop(task);
         }
-        task();
+        // 此时没有任务，进入等待状态
+        std::unique_lock<std::mutex> lock(mtx);
+        cv.wait(lock, [this, &isPop, &task]()
+                {
+            isPop = this->tasks.pop(task);
+            return this->isStop || isPop; }); // 唤醒条件：取得任务或者需要停止工作
+        if (!isPop)   // 唤醒后没有任务，直接结束
+            return;
     }
 }
 
@@ -82,13 +139,19 @@ auto ThreadPool::enqueue(F &&f, Args &&...args) -> std::future<decltype(f(args..
     // 第二步，获取函数执行结果
     auto res = task->get_future();
     // 加入任务队列
-    {
-        std::unique_lock<std::mutex> lock(mtx);
-        if (isStop)
-            throw std::runtime_error("enqueue on stopped ThreadPool");
-        tasks.emplace([task]
-                      { (*task)(); });
-    }
+    // {
+    //     std::unique_lock<std::mutex> lock(mtx);
+    //     if (isStop)
+    //         throw std::runtime_error("enqueue on stopped ThreadPool");
+    //     tasks.push([task]
+    //                { (*task)(); });
+    // }
+
+    if (isStop)
+        throw std::runtime_error("enqueue on stopped ThreadPool"); // 线程安全队列，可以取消锁
+    tasks.push([task]
+               { (*task)(); });
+    std::unique_lock<std::mutex> lock(mtx);
     cv.notify_one();
     return res;
 }

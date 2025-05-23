@@ -60,10 +60,14 @@ public:
         //     isStop = true;
         // }
         isStop = true;
-        cv.notify_all(); // 通知所线程池中的线程停止工作
+        {
+            std::unique_lock<std::mutex> lock(mtx);
+            cv.notify_all(); // 通知所线程池中的线程停止工作
+        }
         for (std::thread &th : workers)
         {
-            th.join();
+            if (th.joinable())
+                th.join();
         }
     }
     template <typename F, typename... Args>

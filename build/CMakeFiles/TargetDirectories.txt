@@ -1,0 +1,4 @@
+/home/fxh/cpp_code/CppStudy_/build/CMakeFiles/MemoryPool.dir
+/home/fxh/cpp_code/CppStudy_/build/CMakeFiles/main.dir
+/home/fxh/cpp_code/CppStudy_/build/CMakeFiles/edit_cache.dir
+/home/fxh/cpp_code/CppStudy_/build/CMakeFiles/rebuild_cache.dir

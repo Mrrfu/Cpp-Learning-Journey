@@ -1,0 +1,1 @@
+/usr/bin/g++ -std=c++11 -g CMakeFiles/main.dir/src/main.cpp.o -o main  -Wl,-rpath,/home/fxh/cpp_code/CppStudy_/build libMemoryPool.so

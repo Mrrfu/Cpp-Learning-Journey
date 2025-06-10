@@ -54,22 +54,20 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fxh/cpp_code/CppStudy_
+CMAKE_SOURCE_DIR = /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fxh/cpp_code/CppStudy_/build
+CMAKE_BINARY_DIR = /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/MemoryPool.dir/all
-all: CMakeFiles/main.dir/all
+all: CMakeFiles/MemoryPoolProject.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/MemoryPool.dir/codegen
-codegen: CMakeFiles/main.dir/codegen
+codegen: CMakeFiles/MemoryPoolProject.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -77,73 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/MemoryPool.dir/clean
-clean: CMakeFiles/main.dir/clean
+clean: CMakeFiles/MemoryPoolProject.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/MemoryPool.dir
+# Target rules for target CMakeFiles/MemoryPoolProject.dir
 
 # All Build rule for target.
-CMakeFiles/MemoryPool.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fxh/cpp_code/CppStudy_/build/CMakeFiles --progress-num=1,2 "Built target MemoryPool"
-.PHONY : CMakeFiles/MemoryPool.dir/all
+CMakeFiles/MemoryPoolProject.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles --progress-num=1,2,3 "Built target MemoryPoolProject"
+.PHONY : CMakeFiles/MemoryPoolProject.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/MemoryPool.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/CppStudy_/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MemoryPool.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/CppStudy_/build/CMakeFiles 0
-.PHONY : CMakeFiles/MemoryPool.dir/rule
+CMakeFiles/MemoryPoolProject.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MemoryPoolProject.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles 0
+.PHONY : CMakeFiles/MemoryPoolProject.dir/rule
 
 # Convenience name for target.
-MemoryPool: CMakeFiles/MemoryPool.dir/rule
-.PHONY : MemoryPool
+MemoryPoolProject: CMakeFiles/MemoryPoolProject.dir/rule
+.PHONY : MemoryPoolProject
 
 # codegen rule for target.
-CMakeFiles/MemoryPool.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fxh/cpp_code/CppStudy_/build/CMakeFiles --progress-num=1,2 "Finished codegen for target MemoryPool"
-.PHONY : CMakeFiles/MemoryPool.dir/codegen
+CMakeFiles/MemoryPoolProject.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target MemoryPoolProject"
+.PHONY : CMakeFiles/MemoryPoolProject.dir/codegen
 
 # clean rule for target.
-CMakeFiles/MemoryPool.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/clean
-.PHONY : CMakeFiles/MemoryPool.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/main.dir
-
-# All Build rule for target.
-CMakeFiles/main.dir/all: CMakeFiles/MemoryPool.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fxh/cpp_code/CppStudy_/build/CMakeFiles --progress-num=3,4 "Built target main"
-.PHONY : CMakeFiles/main.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/CppStudy_/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/CppStudy_/build/CMakeFiles 0
-.PHONY : CMakeFiles/main.dir/rule
-
-# Convenience name for target.
-main: CMakeFiles/main.dir/rule
-.PHONY : main
-
-# codegen rule for target.
-CMakeFiles/main.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/fxh/cpp_code/CppStudy_/build/CMakeFiles --progress-num=3,4 "Finished codegen for target main"
-.PHONY : CMakeFiles/main.dir/codegen
-
-# clean rule for target.
-CMakeFiles/main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
-.PHONY : CMakeFiles/main.dir/clean
+CMakeFiles/MemoryPoolProject.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/clean
+.PHONY : CMakeFiles/MemoryPoolProject.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

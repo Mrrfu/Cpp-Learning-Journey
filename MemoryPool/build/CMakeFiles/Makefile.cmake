@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/fxh/cpp_code/CppStudy_/CMakeLists.txt"
+  "/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/CMakeLists.txt"
   "CMakeFiles/4.0.2/CMakeCCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.0.2/CMakeSystem.cmake"
@@ -54,6 +54,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/MemoryPool.dir/DependInfo.cmake"
-  "CMakeFiles/main.dir/DependInfo.cmake"
+  "CMakeFiles/MemoryPoolProject.dir/DependInfo.cmake"
   )

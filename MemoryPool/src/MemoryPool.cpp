@@ -35,10 +35,13 @@ namespace MyMemoryPool
     void *MemoryPool::allocate()
     {
         // 第一步，检查空闲链表有无内存槽
-        std::cout << "申请内存槽..." << std::endl;
+        // std::cout << "申请内存槽..." << std::endl;
         Slot *slot = popFreeList();
         if (slot != nullptr)
+        {
+            // std::cout << "空闲链表不为空！" << std::endl;
             return slot;
+        }
         Slot *temp;
         {
             std::lock_guard<std::mutex> lock(mutexForBlock_);
@@ -49,7 +52,7 @@ namespace MyMemoryPool
                 allocateNewBlock();
             }
             temp = curSlot_;
-            std::cout << "申请成功..." << std::endl;
+            // std::cout << "申请成功..." << std::endl;
             // SlotSize_是当前内存块槽大小（Slotsize_字节大小），sizeof(Slot)是当前管理头大小
             // std::cout << sizeof(Slot) << std::endl;
             // 等价于：curSlot_ += SlotSize_ / sizeof(Slot);
@@ -84,9 +87,9 @@ namespace MyMemoryPool
         // 3.计算可分配区域的结束点
         lastSlot_ = reinterpret_cast<Slot *>(reinterpret_cast<size_t>(newBlock) + BlockSize_ - SlotSize_ + 1);
         // 这里或许可能会有疑问：为什么置空？
-        // 单线程情况下，因为只有当空闲链表为空时才会申请新的内存块
-        // 但是多线程可能会导致内存泄漏，因此这行代码存在问题
-        freeList_ = nullptr;
+        // 单线程情况下，因为只有当空闲链表为空时才会申请新的内存块，这行代码没有问题但是多余
+        // 多线程可能会导致内存泄漏，因此这行代码存在问题
+        // freeList_ = nullptr;
     }
     size_t MemoryPool::padPointer(char *p, size_t algin)
     {

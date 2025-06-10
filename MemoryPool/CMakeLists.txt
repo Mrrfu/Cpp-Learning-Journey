@@ -1,16 +1,28 @@
+# CMake minimum version
 cmake_minimum_required(VERSION 3.10)
-PROJECT(CppStudy_)
 
-set(CMAKE_CXX_FLAGS "-std=c++11")
-set(CMAKE_BUILD_TYPE "Debug")
+# Project name
+project(MemoryPoolProject)
 
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Include directories
 include_directories(include)
 
+# Source files
+file(GLOB SRC_FILES "src/*.cpp")
+# file(GLOB TEST_FILES "tests/*.cpp")
 
-add_library(MemoryPool SHARED src/MemoryPool.cpp)
+# Add the executable for the main target
+add_executable(${PROJECT_NAME} ${SRC_FILES} ${TEST_FILES})
 
-# 添加要编译的可执行文件，编译main.cpp生成可执行文件main
-add_executable(main src/main.cpp)
+# Add compile options
+target_compile_options(${PROJECT_NAME} PRIVATE -g -pthread)
 
-# 添加可执行文件所需要的库
-target_link_libraries(main MemoryPool)
+# Link libraries
+target_link_libraries(${PROJECT_NAME} pthread)
+
+# Link libraries (if any)
+# target_link_libraries(${PROJECT_NAME} <library_name>)

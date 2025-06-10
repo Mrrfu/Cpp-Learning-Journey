@@ -39,11 +39,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel ..."
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/fxh/cpp_code/CppStudy_/build"
+			"value" : "/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -155,11 +155,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/g++"
+			"value" : "/usr/bin/c++"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -283,11 +283,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc"
+			"value" : "/usr/bin/cc"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -531,11 +531,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Enable/Disable output of compile commands during generation."
 				}
 			],
 			"type" : "BOOL",
-			"value" : "TRUE"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_EXTRA_GENERATOR",
@@ -559,7 +559,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fxh/cpp_code/CppStudy_/build/CMakeFiles/pkgRedirects"
+			"value" : "/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -619,7 +619,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/fxh/cpp_code/CppStudy_"
+			"value" : "/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -875,7 +875,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "CppStudy_"
+			"value" : "MemoryPoolProject"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1174,7 +1174,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "CppStudy__BINARY_DIR",
+			"name" : "MemoryPoolProject_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1183,10 +1183,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fxh/cpp_code/CppStudy_/build"
+			"value" : "/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build"
 		},
 		{
-			"name" : "CppStudy__IS_TOP_LEVEL",
+			"name" : "MemoryPoolProject_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1198,7 +1198,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "CppStudy__SOURCE_DIR",
+			"name" : "MemoryPoolProject_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1207,7 +1207,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fxh/cpp_code/CppStudy_"
+			"value" : "/home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool"
 		}
 	],
 	"kind" : "cache",

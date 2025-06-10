@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fxh/cpp_code/CppStudy_
+CMAKE_SOURCE_DIR = /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fxh/cpp_code/CppStudy_/build
+CMAKE_BINARY_DIR = /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/CppStudy_/build/CMakeFiles /home/fxh/cpp_code/CppStudy_/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/CppStudy_/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fxh/cpp_code/Cpp-Learning-Journey/MemoryPool/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,37 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named MemoryPool
+# Target rules for targets named MemoryPoolProject
 
 # Build rule for target.
-MemoryPool: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MemoryPool
-.PHONY : MemoryPool
+MemoryPoolProject: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MemoryPoolProject
+.PHONY : MemoryPoolProject
 
 # fast build rule for target.
-MemoryPool/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/build
-.PHONY : MemoryPool/fast
-
-#=============================================================================
-# Target rules for targets named main
-
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
-
-# fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+MemoryPoolProject/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/build
+.PHONY : MemoryPoolProject/fast
 
 src/MemoryPool.o: src/MemoryPool.cpp.o
 .PHONY : src/MemoryPool.o
 
 # target to build an object file
 src/MemoryPool.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/src/MemoryPool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/src/MemoryPool.cpp.o
 .PHONY : src/MemoryPool.cpp.o
 
 src/MemoryPool.i: src/MemoryPool.cpp.i
@@ -155,7 +142,7 @@ src/MemoryPool.i: src/MemoryPool.cpp.i
 
 # target to preprocess a source file
 src/MemoryPool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/src/MemoryPool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/src/MemoryPool.cpp.i
 .PHONY : src/MemoryPool.cpp.i
 
 src/MemoryPool.s: src/MemoryPool.cpp.s
@@ -163,7 +150,7 @@ src/MemoryPool.s: src/MemoryPool.cpp.s
 
 # target to generate assembly for a file
 src/MemoryPool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPool.dir/build.make CMakeFiles/MemoryPool.dir/src/MemoryPool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/src/MemoryPool.cpp.s
 .PHONY : src/MemoryPool.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -171,7 +158,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -179,7 +166,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -187,7 +174,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryPoolProject.dir/build.make CMakeFiles/MemoryPoolProject.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -198,8 +185,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... MemoryPool"
-	@echo "... main"
+	@echo "... MemoryPoolProject"
 	@echo "... src/MemoryPool.o"
 	@echo "... src/MemoryPool.i"
 	@echo "... src/MemoryPool.s"

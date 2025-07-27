@@ -1,0 +1,5 @@
+[INFO]  [2025-07-27 18:28:54] Starting application...
+[INFO]  [2025-07-27 18:28:54] User 42 performed login in 3.5 seconds
+[DEBUG]  [2025-07-27 18:28:54] Hello world
+[WARNING]  [2025-07-27 18:28:54] This is a message without any placeholders
+[ERROR]  [2025-07-27 18:28:54] Multiple placeholders 1, 2, 3

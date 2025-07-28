@@ -8,3 +8,8 @@
 [DEBUG]  [2025-07-27 18:34:54] Hello world
 [WARNING]  [2025-07-27 18:34:54] This is a message without any placeholders
 [ERROR]  [2025-07-27 18:34:54] Multiple placeholders 1, 2, 3
+[INFO]  [2025-07-27 21:27:56] Starting application...
+[INFO]  [2025-07-27 21:27:56] User 42 performed login in 3.5 seconds
+[DEBUG]  [2025-07-27 21:27:56] Hello world
+[WARNING]  [2025-07-27 21:27:56] This is a message without any placeholders
+[ERROR]  [2025-07-27 21:27:56] Multiple placeholders 1, 2, 3

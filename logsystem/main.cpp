@@ -18,6 +18,7 @@ int main() {
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
-
+    std::unique_ptr<int>p(new int(42));
+    p.reset();
     return 0;
 }
